@@ -1,0 +1,10 @@
+<li>
+	<span class="title"><%= post.title %></span>
+	<span class="date">Posted <%= post.created_at %></span>
+	<span class="content"><%= post.content %></span>
+	<% if current_user?(post.user) %>
+	<%= link_to "delete", post, method: :delete,
+								data: { confirm: "Remove post?" },
+								title: post.title %>
+	<% end %>
+</li>

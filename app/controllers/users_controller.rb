@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @posts = @user.posts.paginate(page: params[:page])
   end
   
   def new
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
   	if @user.save
   		sign_in @user
-  		flash[:success] = "Welcome to Mugen Gallery!"
+  		flash[:success] = "Welcome to Mugen Blog!"
   		redirect_to @user
   	else
   		render 'new'

@@ -1,12 +1,31 @@
+<% if signed_in? %>
+	<div class="row">
+	  <aside class="span4">
+	    <section>
+	      <%= render 'shared/user_info' %>
+	    </section>
+	  </aside>
+	  <div class="span8">
+	  	<section>
+	    	<%= render 'shared/post_form' %>
+	    </section>
+	    <section>
+		    <h3> Post Feed </h3>
+		    <%= render 'shared/feed' %>
+		</section>
+	  </row>
+	</div>  
+<% else %>
+	<div class="center hero-unit">
+		<h1> Welcome to Mugen Blog</h1>
 
-<div class="center hero-unit">
-	<h1> Welcome to Mugen Gallery</h1>
+		<h2>
+			This is the homepage for Mugen blog, part of my portfolio to get rich and conquer Earth.  Please browse existing blogs, 
+			or create your own.
+		</h2>
 
-	<h2>
-		This is the homepage for Mugen gallery, part of my portfolio to get rich and conquer Earth.
-	</h2>
+		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+	</div>
 
-	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
-
-<%= link_to image_tag("mugen.png", alt: "Public Gallery"), '#' %>
+	<%= link_to image_tag("mugen.png", alt: "Public Gallery"), '#' %>
+<% end %>
