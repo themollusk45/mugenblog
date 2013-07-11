@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
-  before_filter :correct_user,   only: [:edit, :update]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :change_password]
+  before_filter :correct_user,   only: [:edit, :update, :change_password]
   before_filter :admin_user,     only: :destroy
 
   def show
   	@user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
+    #@post = Post.find(params[:id])
   end
   
   def new
@@ -23,6 +24,11 @@ class UsersController < ApplicationController
   	end
   end
 
+  def account
+    @title = "Account"
+    @user = User.find(params[:id])
+  end
+
   def edit
   end
 
@@ -35,6 +41,8 @@ class UsersController < ApplicationController
       flash[:success] = "Profile updated"
       sign_in @user
       redirect_to @user
+    elsif @title = "Account"
+      render 'account'
     else
       render 'edit'
     end

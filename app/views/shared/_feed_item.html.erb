@@ -3,8 +3,8 @@
   <span class="user">
     <%= link_to feed_item.user.name, feed_item.user %>
   </span>
-  <span class="title"><%= feed_item.title %></span>
-  <span class="content"><%= feed_item.content %></span>
+  <span class="title"><%= link_to feed_item.title, feed_item %></span>
+  <span class="content"><%= simple_format feed_item.content.split(' ').slice(0,50).join(' ') %>...</span>
   <span class="date">
     Posted <%= feed_item.created_at %> 
   </span>

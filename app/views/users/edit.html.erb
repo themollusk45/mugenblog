@@ -6,19 +6,30 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.hidden_field :password, :value => current_user.password %>
+      <%= f.hidden_field :password_confirmation, :value => current_user.password_confirmation %>
 
       <%= f.label :email %>
       <%= f.text_field :email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <% if(@user.logo.url != "/logos/original/missing.png") %>
+        <%=h image_tag @user.logo.url %>
+      <% end %>
+    
+      <%= f.label :logo, 'Choose the image logo which will appear at the top of your blog' %>
+      <%= f.file_field :logo %>
 
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.submit "update logo", class: "btn btn-large btn-primary" %>
+    <% end %>
 
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <%= form_for([@user, @user.links.build]) do |f| %>
+      <%= f.label :url, 'Enter url' %>
+      <%= f.text_field :url %>
+
+      <%= f.label :text, 'Enter text for link' %>
+      <%= f.text_field :text %>
+
+      <%= f.submit "add link", class: "btn btn-large btn-primary" %>
     <% end %>
 
     <%= gravatar_for @user %>
