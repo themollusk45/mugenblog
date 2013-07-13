@@ -27,7 +27,7 @@
 			<%= link_to "edit post", '#' %>
 			<%= link_to "delete", @post, method: :delete,
 										data: { confirm: "you sure?" },
-										title: @post.title %>
+										title: @post.title %>                  
 		<% end %>
     </section>
 
@@ -69,11 +69,13 @@
   </div>
   <aside class="span4 righthandside">
   	<p>right hand stuff</p>
-    <div class="right_hand_links">
-      <% @post.user.links.each do |link| %>
-        <%= link_to link.text, link.url %>
-      <% end %>
-    </div>
+    <section class="rhs_links">
+      <ul>
+        <% @user.links.each do |link| %>
+          <li><%= link_to link.text, link.url %></li>
+        <% end %>
+      </ul>
+    </section>
   </aside>
 </div>  
 
