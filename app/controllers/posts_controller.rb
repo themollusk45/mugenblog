@@ -3,8 +3,8 @@ class PostsController < ApplicationController
   before_filter :correct_user, only: :destroy
 
   def show
-    @user = current_user
     @post = Post.find_by_id(params[:id])
+    @user = @post.user
   end
 
   def create
