@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ImageGalleryApp::Application.load_tasks
+MugenBlog::Application.load_tasks
