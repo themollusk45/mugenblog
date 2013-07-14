@@ -19,8 +19,10 @@ test:
   timeout: 5000
 
 production:
-  database: mugenblog_production
-  pool: 5
-  username: deployer
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: mugenblog
+  username: mugenblog
   password: negum!45*
-  socked: var/run/mysqld/mysqld.sock
+  socket: /var/run/mysqld/mysqld.sock

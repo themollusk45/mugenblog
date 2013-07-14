@@ -1,4 +1,4 @@
-ImageGalleryApp::Application.routes.draw do
+MugenBlog::Application.routes.draw do
   resources :users do
     member do
       get :account
