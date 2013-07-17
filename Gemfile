@@ -10,7 +10,8 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'paperclip', '~> 3.4.0'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.5'
+  #gem 'sqlite3', '1.3.5'
+  gem 'mysql2'
   gem 'rspec-rails', '2.11.0'
 end
 
