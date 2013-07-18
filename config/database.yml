@@ -22,7 +22,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: mugenblog
-  username: mugenblog
-  password: 
+  database: mugenblog_pro
+  username: mugen
+  password: moocow45!sql
   socket: /var/run/mysqld/mysqld.sock
