@@ -41,7 +41,7 @@ class UsersController < ApplicationController
       flash[:success] = "Profile updated"
       sign_in @user
       redirect_to @user
-    elsif @title = "Account"
+    elsif @title == "Account"
       render 'account'
     else
       render 'edit'
